@@ -38,4 +38,10 @@ RSpec.describe 'when a visitor visits the astronaut index page', type: :feature 
 
     expect(page).to have_content("Missions:\nArmageddon\nApollo 14")
   end
+
+  it 'can see the total time in space for each astronaut' do
+    visit astronauts_path
+    
+    expect(page).to have_content("Total time in space: 20 days")
+  end
 end
