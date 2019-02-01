@@ -9,18 +9,18 @@ RSpec.describe 'when a visitor visits the astronaut index page', type: :feature 
     astronaut_3 = Astronaut.create(name: 'Edgar Mitchell', age: 41, job: 'Lunar Module Pilot', missions: [mission_1] )
 
     visit astronauts_path
+    save_and_open_page
+    expect(page).to have_content("#{astronaut_1.name}")
+    expect(page).to have_content("Age: #{astronaut_1.age}")
+    expect(page).to have_content("Job: #{astronaut_1.job}")
 
-    expect(page).to have_content("Name: #{astronaut_1.name}")
-    expect(page).to have_content("Name: #{astronaut_1.age}")
-    expect(page).to have_content("Name: #{astronaut_1.job}")
+    expect(page).to have_content("#{astronaut_2.name}")
+    expect(page).to have_content("Age: #{astronaut_2.age}")
+    expect(page).to have_content("Job: #{astronaut_2.job}")
 
-    expect(page).to have_content("Name: #{astronaut_2.name}")
-    expect(page).to have_content("Name: #{astronaut_2.age}")
-    expect(page).to have_content("Name: #{astronaut_2.job}")
-
-    expect(page).to have_content("Name: #{astronaut_3.name}")
-    expect(page).to have_content("Name: #{astronaut_3.age}")
-    expect(page).to have_content("Name: #{astronaut_3.job}")
+    expect(page).to have_content("#{astronaut_3.name}")
+    expect(page).to have_content("Age: #{astronaut_3.age}")
+    expect(page).to have_content("Job: #{astronaut_3.job}")
 
   end
 end
